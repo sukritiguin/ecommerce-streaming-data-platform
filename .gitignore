@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+.dbt/
+
+# Airflow
+airflow/logs/*
+!airflow/logs/.gitkeep
+airflow-webserver.pid
+*.pid
+
+# Docker volumes (created at runtime, not code)
+volumes/
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+*.pem
+*_rsa
+*_rsa.pub
+snowflake/credentials.yaml
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store

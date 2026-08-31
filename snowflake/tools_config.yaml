@@ -1,0 +1,21 @@
+# Service config for the Snowflake Labs MCP server (snowflake-labs-mcp).
+# Connection params (account/user/password/warehouse/role) come from env vars
+# in .env, not from this file. See .mcp.json.
+#
+# Delete/Drop are left disabled by default so an agent session can't destroy
+# objects in the warehouse without a human explicitly re-enabling them here.
+agent_services: []
+search_services: []
+analyst_services: []
+other_services:
+  object_manager: true
+  query_manager: true
+  semantic_manager: true
+sql_statement_permissions:
+  - Select: true
+  - Create: true
+  - Insert: true
+  - Update: true
+  - Alter: true
+  - Delete: false
+  - Drop: false
