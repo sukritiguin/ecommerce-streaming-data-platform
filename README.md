@@ -64,7 +64,7 @@ take effect.
 - [x] Repo scaffold, Docker Compose (Kafka, MinIO, Airflow), MCP config, git/GitHub
 - [x] MinIO running + verified (bucket create/write/read round-trip via `mc`), MinIO MCP server verified end-to-end (`list_buckets` tool call against local MinIO)
 - [ ] Snowflake trial account: warehouse, database, raw/staging/marts schemas
-- [ ] Python producer: simulate orders + clickstream events onto Kafka
+- [x] Python producer: simulate orders + clickstream events onto Kafka (verified against a live local Kafka: 40 sessions → 248 clickstream events + 18 orders delivered correctly)
 - [ ] Python consumer: batch-write Kafka events to MinIO, partitioned by date
 
 **Week 2 — Orchestration + modeling**
