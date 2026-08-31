@@ -52,6 +52,7 @@ env / `.env`):
 | `snowflake` | Query Snowflake objects/data directly from Claude | Snowflake trial credentials in `.env` (Week 2) — see [`snowflake/tools_config.yaml`](snowflake/tools_config.yaml) for the permission allowlist (Delete/Drop are off by default) |
 | `github` | Manage issues/PRs on this repo directly from Claude | `GITHUB_PERSONAL_ACCESS_TOKEN` in `.env` — quickest way: `export GITHUB_PERSONAL_ACCESS_TOKEN=$(gh auth token)` |
 | `notion` | Read/write project docs in Notion from Claude | Authenticates via OAuth on first use — no token needed |
+| `minio` | List/inspect buckets and objects directly from Claude | MinIO running (`make up`); runs on `--network host`, so Linux/WSL only as configured — write/delete/admin operations are off by default (pass `--allow-write`/`--allow-delete`/`--allow-admin` in `.mcp.json` args to enable) |
 
 Claude Code picks up `.mcp.json` automatically when you open this directory.
 Restart your Claude Code session after editing `.env` for new credentials to
@@ -61,6 +62,7 @@ take effect.
 
 **Week 1 — Ingestion foundation**
 - [x] Repo scaffold, Docker Compose (Kafka, MinIO, Airflow), MCP config, git/GitHub
+- [x] MinIO running + verified (bucket create/write/read round-trip via `mc`), MinIO MCP server verified end-to-end (`list_buckets` tool call against local MinIO)
 - [ ] Snowflake trial account: warehouse, database, raw/staging/marts schemas
 - [ ] Python producer: simulate orders + clickstream events onto Kafka
 - [ ] Python consumer: batch-write Kafka events to MinIO, partitioned by date

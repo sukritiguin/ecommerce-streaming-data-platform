@@ -36,6 +36,19 @@
     "notion": {
       "type": "http",
       "url": "https://mcp.notion.com/mcp"
+    },
+    "minio": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "--network", "host",
+        "-e", "MINIO_ENDPOINT=${MINIO_ENDPOINT_HOST}",
+        "-e", "MINIO_ACCESS_KEY=${MINIO_ROOT_USER}",
+        "-e", "MINIO_SECRET_KEY=${MINIO_ROOT_PASSWORD}",
+        "-e", "MINIO_USE_SSL=false",
+        "quay.io/minio/aistor/mcp-server-aistor:latest",
+        "--container-mode"
+      ]
     }
   }
 }
